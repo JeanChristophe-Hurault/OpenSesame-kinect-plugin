@@ -17,8 +17,9 @@ Thus, it’s possible to record the position of a participant during any phase o
 
 ## Install the Plugin for Windows
 
-First, you need to install the drivers and runtime environment (Kinect for Windows Runtime v1.8) required by Kinect for Windows applications using Kinect sensor technology. You can find it here:
-- <https://www.microsoft.com/en-us/download/details.aspx?id=40277>
+First, you need to install the drivers, runtime environment and Software Development Kit (SDK) required by Kinect for Windows applications using Kinect sensor technology. You can find them here:
+- Kinect for Windows Runtime v1.8 : <https://www.microsoft.com/en-us/download/details.aspx?id=40277>
+- Kinect for Windows SDK v1.8 : <https://www.microsoft.com/en-us/download/confirmation.aspx?id=40278>
 
 The "pykinect" package is already included in the plugin folder, so you don't need to download it.
 
