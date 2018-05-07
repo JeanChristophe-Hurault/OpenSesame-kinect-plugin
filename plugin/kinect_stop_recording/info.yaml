@@ -1,0 +1,4 @@
+author: "Jean-Christophe Hurault"
+category: "Kinect Response"
+description: "This plugin stop the recording of the skeleton (place at the end of each trial)"
+controls:
