@@ -1,0 +1,4 @@
+author: "Jean-Christophe Hurault"
+category: "Kinect Response"
+description: "This plugin instantiate a reference position to the skeleton of the participant (place before each trial)"
+controls:
