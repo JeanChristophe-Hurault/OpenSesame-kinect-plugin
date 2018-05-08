@@ -35,7 +35,7 @@ Add the
 ### Logging
 The plugin create its own log file, directly in the folder of the experiment file.
 
-Be careful : you can have another heads lines after the first row in the log file. It appears when an element in your opensesame's experiment is launched. By adding a variable in Opensesame, the plugin add a new head line to fit the data it get from Opensesame.
+- Be careful : you can have another heads lines after the first row in the log file. It appears when an element in your opensesame's experiment is launched. By adding a variable in Opensesame, the plugin add a new head line to fit the data it get from Opensesame.
 
 ## License
 No rights reserved. All files in this repository are released into the public domain.
