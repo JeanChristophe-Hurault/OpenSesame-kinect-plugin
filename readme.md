@@ -35,5 +35,6 @@ Add the
 ### Logging
 The plugin create its own log file, directly in the folder of the experiment file.
 
-### License
+
+## License
 No rights reserved. All files in this repository are released into the public domain.
