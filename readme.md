@@ -1,6 +1,7 @@
 # OpenSesame Kinect plugins
 
-Created by : Jean-Christophe Hurault <jean-christophe.hurault1@univ-montp3.fr>
+Created by : Jean-Christophe Hurault 
+<jean-christophe.hurault1@univ-montp3.fr>
 
 A serie of plugins that allows the interaction between a Kinect device and Opensesame.
 
