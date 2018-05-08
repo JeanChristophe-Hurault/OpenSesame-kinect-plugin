@@ -1,5 +1,5 @@
 # OpenSesame Kinect plugins
-A serie of plugins that allows the interaction between a Kinect® and Opensesame.
+A serie of plugins that allows the interaction between a Kinect device and Opensesame.
 
 ## About the Kinect
 
