@@ -1,9 +1,0 @@
-description: This plugin launch the recording of the skeleton (place whitin each trial).
-version: 1.0
-date: "May 2018"
-author: "Jean-Christophe Hurault"
-category: "Kinect Response"
-controls:
--
-    type: "text"
-    label: "This plugin launch the recording of the skeleton (place whitin each trial)."
