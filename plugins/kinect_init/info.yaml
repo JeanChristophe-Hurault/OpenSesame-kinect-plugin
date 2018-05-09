@@ -1,0 +1,9 @@
+description: This plugin initiate the object Kinect (place at the beginning of the experiment).
+version: 1.0
+date: "May 2018"
+author: "Jean-Christophe Hurault"
+category: "Kinect Response"
+controls:
+-
+    type: "text"
+    label: "This plugin initiate the object Kinect (place at the beginning of the experiment)."
