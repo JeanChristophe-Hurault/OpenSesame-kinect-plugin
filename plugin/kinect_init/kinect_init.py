@@ -1,3 +1,11 @@
+# ############################################################################
+#
+# Author : Jean-Christophe Hurault
+# Date : 2018
+# Contact : jeanchristophe.hurault@gmail.com
+#
+# ###########################################################################/
+
 #-*- coding:utf-8 -*-
 
 # Import Python 3 compatibility functions
