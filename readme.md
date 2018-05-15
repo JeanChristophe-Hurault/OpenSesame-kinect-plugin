@@ -79,7 +79,6 @@ var.mvt_type = None
 <pre><code>
 # Get the time when the element started
 start_time = self.experiment.time()
-
 # Infinite loop until 'break' is call
 while 1 :
 	# Call the get_data function (in libkinect.py) to access the data from the kinect
@@ -107,9 +106,11 @@ while 1 :
 	ankle_right     = skeleton.SkeletonPositions[18]
 	foot_right      = skeleton.SkeletonPositions[19]
 	
-	## Examples of movement you can handle by comparing the position of different part of the participants body
 	
-	# If the participant has the right hand higher (the vertical axis of the Kinect, so the 'y' part) than the shoulder, it ocnsider that the participant rise the right hand
+	## Examples of movement you can handle by comparing the position of different part of the participants body
+
+	# If the participant has the right hand higher (the vertical axis of the Kinect, so the 'y' part) than the shoulder, 
+	# it consider that the participant rise the right hand
 	if hand_right.y > shoulder_right.y :
 		# Set the time of the movement, by substracting the actual time to the starting time
 		var.mvt_time = self.experiment.time() - start_time
@@ -118,7 +119,8 @@ while 1 :
 		# End the loop and end the inline script element
 		#break
 	
-	# If the participant has the left hand higher (the vertical axis of the Kinect, so the 'y' part) than the shoulder, it ocnsider that the participant rise the left hand
+	# If the participant has the left hand higher (the vertical axis of the Kinect, so the 'y' part) than the shoulder,
+	# it consider that the participant rise the left hand
 	if hand_left.y > shoulder_left.y :
 		# Set the time of the movement, by substracting the actual time to the starting time
 		var.mvt_time = self.experiment.time() - start_time
@@ -127,8 +129,10 @@ while 1 :
 		# End the loop and end the inline script element
 		#break
 	
-	# If you add the calibration plugin, you can compare the actual position of the participant to the position during the calibration (aka, 'initial position')
-	# So, if the right hand is closer (50% of the initial distance) to the kinect than during the calibration, it consider that the right hand move forward
+	# If you add the calibration plugin, you can compare the actual position of the participant to the position during 
+	# the calibration (aka, 'initial position')
+	# So, if the right hand is closer (50% of the initial distance) to the kinect than during the calibration, 
+	# it consider that the right hand move forward
 	
 	
 	# Indicate the correspondance of each skeleton's articulations
