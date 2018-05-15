@@ -5,6 +5,8 @@ Created by : Jean-Christophe Hurault
 
 A serie of plugins that allows non-intrusive body motion capture of a participant by making Opensesame communicate with a Kinect device.
 
+<em>N'hesitez pas à me contacter si vous avez des remarques ou suggestions d'améliorations !</em>
+
 ## About the Kinect
 
 The Kinect is a motion-sensing input device developed by Microsoft© and introduced in November 2010 (https://en.wikipedia.org/wiki/Kinect). Originally designed for the video game industry, offers an affordable, inexpensive and portable solution for studying body movement. This device consists of a box equipped with sensors and cameras that connects to a computer. Positioned in front of the participant, it collects movements in three-dimensional space by providing real-time positions and rotations of the human body (Shotton et al., 2011). By evaluating the Kinect® error in the temporal and spatial domain compared to reference systems (Clark et al., 2012), previous research validated the measurement qualities of this tool.
