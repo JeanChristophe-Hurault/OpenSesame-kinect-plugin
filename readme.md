@@ -30,7 +30,7 @@ The "pykinect" package is already included in the plugin folder, so you don't ne
 Then, to install Kinect plugin in OpenSesame, simply copy the 4 folders inside the "plugins" folder to the OpenSesame program folder (for OpenSesame 3.0 or newer):
 - C:\Program Files (x86)\OpenSesame\share\opensesame_plugins
 </br>
-![folder plugins](opensesame-kinect-plugins/images/install_pluginsKinect.png "Copy-Paste folders from plugins")
+![folder plugins](https://raw.githubusercontent.com/JeanChristophe-Hurault/opensesame-kinect-plugins/master/images/install_pluginsKinect.png "Copy-Paste folders from plugins")
 </br>
 
 ## Using plugins in an experiment
