@@ -65,17 +65,18 @@ The plugin create its own log file, directly in the folder of the experiment fil
 
 You can't directly use gestures as response in your experiment yet. But, it is possible to modify the python file (name "libkinect.py" in the folder "kinect_init") and add this functionnality. Don't hesite to contact me for more informations or help.
 
-Inline script
+Inline script :</br>
+<b>-- Prepare part --</b>  
 <pre><code>
--- Prepare part --
 ## Initialize new variables in Opensesame, so they exist from the start and there is no shift in the logfile
 # Variable for the time of the movement
 var.mvt_time = 0
 # Variable for the type of the movement
 var.mvt_type = None
-  
-  
--- Run part --
+</code></pre>
+</br>
+<b>-- Run part --</b>  
+<pre><code>
 # Get the time when the element started
 start_time = self.experiment.time()
 
