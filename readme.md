@@ -5,7 +5,7 @@ Created by : Jean-Christophe Hurault
 
 A serie of plugins that allows non-intrusive body motion capture of a participant by making Opensesame communicate with a Kinect device.
 
-<em>N'hesitez pas à me contacter si vous avez des remarques ou suggestions d'améliorations !</em>
+<b>N'hesitez pas à me contacter si vous avez des remarques ou suggestions d'améliorations !</b>
 
 ## About the Kinect
 
