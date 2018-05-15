@@ -44,7 +44,7 @@ The data collected by the Kinect is the three-dimensional coordinates of the joi
 
 ![Kinect device](https://www.resna.org/sites/default/files/conference/2014/Wheelchair%20Seating/Student%20Scientific/McCutcheon/Fig1.png "Kinect device and human articulation it detect")
 <em><b>Figure : Characteristics of the Kinect</b></em>
-<em><b>(A) Captured human joints      (B) Technical components      (C) Coordinate system</b></em>
+<em><b>     (  (A) Captured human joints (B) Technical components (C) Coordinate system</b>  )</em>
 
 
 The plugin create its own log file, directly in the folder of the experiment file.
