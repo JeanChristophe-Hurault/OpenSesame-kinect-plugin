@@ -1,0 +1,201 @@
+---
+API: 2
+OpenSesame: 3.1.9
+Platform: nt
+---
+set width 1024
+set uniform_coordinates yes
+set title "Nouvelle expérience"
+set subject_parity even
+set subject_nr 0
+set start experiment
+set sound_sample_size -16
+set sound_freq 48000
+set sound_channels 2
+set sound_buf_size 1024
+set round_decimals 2
+set height 768
+set fullscreen no
+set form_clicks no
+set foreground white
+set font_underline no
+set font_size 18
+set font_italic no
+set font_family mono
+set font_bold no
+set experiment_path "C:\\Users\\jhurault\\Desktop"
+set disable_garbage_collection yes
+set description "The main experiment item"
+set coordinates uniform
+set compensation 0
+set canvas_backend xpyriment
+set bidi no
+set background black
+
+define sequence experiment
+	set flush_keyboard yes
+	set description "Exécute séquentiellement plusieurs items"
+	run kinect_init always
+	run welcome always
+	run test_loop always
+
+define kinect_calibration kinect_calibration
+	set item_type kinect_calibration
+	set description "This plugin instantiate a reference position to the skeleton of the participant (place before each trial)"
+
+define kinect_init kinect_init
+	set item_type kinect_init
+	set description "This plugin initiate the object Kinect (place at the beginning of the experiment)"
+
+define kinect_start_recording kinect_start_recording
+	set item_type kinect_start_recording
+	set description "This plugin launch the recording of the skeleton (place whitin each trial)"
+
+define kinect_stop_recording kinect_stop_recording
+	set item_type kinect_stop_recording
+	set description "This plugin stop the recording of the skeleton (place at the end of each trial)"
+
+define inline_script new_inline_script
+	set description "Executes Python code"
+	___run__
+	# Get the time when the element started
+	start_time = self.experiment.time()
+	
+	# Infinite loop until 'break' is call
+	while 1 :
+		# Call the get_data function (in libkinect.py) to access the data from the kinect
+		skeleton = self.experiment.kinect.get_data()
+		# Indicate the correspondance of each skeleton's articulations
+		# For each articulations, you have 3 coordonnates (x - horizontal axis, y - vertical axis, z - depth axis)
+		hip_center      = skeleton.SkeletonPositions[0]
+		spine           = skeleton.SkeletonPositions[1]
+		shoulder_center = skeleton.SkeletonPositions[2]
+		head            = skeleton.SkeletonPositions[3]
+		shoulder_left   = skeleton.SkeletonPositions[4]
+		elbow_left      = skeleton.SkeletonPositions[5]
+		wrist_left      = skeleton.SkeletonPositions[6]
+		hand_left       = skeleton.SkeletonPositions[7]
+		shoulder_right  = skeleton.SkeletonPositions[8]
+		elbow_right     = skeleton.SkeletonPositions[9]
+		wrist_right     = skeleton.SkeletonPositions[10]
+		hand_right      = skeleton.SkeletonPositions[11]
+		hip_left        = skeleton.SkeletonPositions[12]
+		knee_left       = skeleton.SkeletonPositions[13]
+		ankle_left      = skeleton.SkeletonPositions[14]
+		foot_left       = skeleton.SkeletonPositions[15]
+		hip_right       = skeleton.SkeletonPositions[16]
+		knee_right      = skeleton.SkeletonPositions[17]
+		ankle_right     = skeleton.SkeletonPositions[18]
+		foot_right      = skeleton.SkeletonPositions[19]
+		
+		## Examples of movement you can handle by comparing the position of different part of the participants body
+		
+		# If the participant has the right hand higher (the vertical axis of the Kinect, so the 'y' part) than the shoulder, it ocnsider that the participant rise the right hand
+		if hand_right.y > shoulder_right.y :
+			# Set the time of the movement, by substracting the actual time to the starting time
+			var.mvt_time = self.experiment.time() - start_time
+			# Set the type of the movement
+			var.mvt_type = "rising right hand"
+			# End the loop and end the inline script element
+			#break
+		
+		# If the participant has the left hand higher (the vertical axis of the Kinect, so the 'y' part) than the shoulder, it ocnsider that the participant rise the left hand
+		if hand_left.y > shoulder_left.y :
+			# Set the time of the movement, by substracting the actual time to the starting time
+			var.mvt_time = self.experiment.time() - start_time
+			# Set the type of the movement
+			var.mvt_type = "rising left hand"
+			# End the loop and end the inline script element
+			#break
+		
+		# If you add the calibration plugin, you can compare the actual position of the participant to the position during the calibration (aka, 'initial position')
+		# So, if the right hand is closer (50% of the initial distance) to the kinect than during the calibration, it consider that the right hand move forward
+		
+		
+		# Indicate the correspondance of each skeleton's articulations
+		# For each articulations, you have 3 coordonnates (x - horizontal axis, y - vertical axis, z - depth axis)
+		first_hip_center      = self.experiment.first_skeleton.SkeletonPositions[0]
+		first_spine           = self.experiment.first_skeleton.SkeletonPositions[1]
+		first_shoulder_center = self.experiment.first_skeleton.SkeletonPositions[2]
+		first_head            = self.experiment.first_skeleton.SkeletonPositions[3]
+		first_shoulder_left   = self.experiment.first_skeleton.SkeletonPositions[4]
+		first_elbow_left      = self.experiment.first_skeleton.SkeletonPositions[5]
+		first_wrist_left      = self.experiment.first_skeleton.SkeletonPositions[6]
+		first_hand_left       = self.experiment.first_skeleton.SkeletonPositions[7]
+		first_shoulder_right  = self.experiment.first_skeleton.SkeletonPositions[8]
+		first_elbow_right     = self.experiment.first_skeleton.SkeletonPositions[9]
+		first_wrist_right     = self.experiment.first_skeleton.SkeletonPositions[10]
+		first_hand_right      = self.experiment.first_skeleton.SkeletonPositions[11]
+		first_hip_left        = self.experiment.first_skeleton.SkeletonPositions[12]
+		first_knee_left       = self.experiment.first_skeleton.SkeletonPositions[13]
+		first_ankle_left      = self.experiment.first_skeleton.SkeletonPositions[14]
+		first_foot_left       = self.experiment.first_skeleton.SkeletonPositions[15]
+		first_hip_right       = self.experiment.first_skeleton.SkeletonPositions[16]
+		first_knee_right      = self.experiment.first_skeleton.SkeletonPositions[17]
+		first_ankle_right     = self.experiment.first_skeleton.SkeletonPositions[18]
+		first_foot_right      = self.experiment.first_skeleton.SkeletonPositions[19]
+		
+		if hand_right.x < (first_hand_right.x * 0.8) :
+			# Set the time of the movement, by substracting the actual time to the starting time
+			var.mvt_time = self.experiment.time() - start_time
+			# Set the type of the movement
+			var.mvt_type = "approaching right hand"
+			# End the loop and end the inline script element
+			break
+	__end__
+	___prepare__
+	## Initialize new variables in Opensesame, so they exist from the start and there is no shift in the logfile
+	# Variable for the time of the movement
+	var.mvt_time = 0
+	# Variable for the type of the movement
+	var.mvt_type = None
+	__end__
+
+define sketchpad new_sketchpad
+	set duration keypress
+	set description "Montrer des stimuli visuels"
+
+define sequence sequence
+	set flush_keyboard yes
+	set description "Exécute séquentiellement plusieurs items"
+	run test_phase always
+
+define sketchpad stimulus
+	set duration keypress
+	set description "Montrer des stimuli visuels"
+	draw fixdot color=white show_if=always style=default x=0 y=-32 z_index=0
+	draw fixdot color=white show_if=always style=default x=0 y=0 z_index=0
+	draw fixdot color=white show_if=always style=default x=0 y=32 z_index=0
+	draw fixdot color=white show_if=always style=default x=32 y=0 z_index=0
+	draw fixdot color=white show_if=always style=default x=-32 y=0 z_index=0
+
+define loop test_loop
+	set source_file ""
+	set source table
+	set repeat 4
+	set order random
+	set description "Exécuter un autre item plusieurs fois"
+	set cycles 1
+	set continuous no
+	set break_if_on_first yes
+	set break_if never
+	setcycle 0 az a
+	run sequence
+
+define sequence test_phase
+	set flush_keyboard yes
+	set description "Exécute séquentiellement plusieurs items"
+	run new_sketchpad always
+	run kinect_calibration always
+	run new_inline_script always
+	run kinect_start_recording always
+	run stimulus always
+	run kinect_stop_recording always
+
+define sketchpad welcome
+	set start_response_interval no
+	set reset_variables no
+	set duration keypress
+	set description "Montrer des stimuli visuels"
+	draw textline center=1 color=white font_bold=no font_family=serif font_italic=no font_size=32 html=yes show_if=always text=Experience x=0 y=0 z_index=0
+
