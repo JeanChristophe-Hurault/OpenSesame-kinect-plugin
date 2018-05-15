@@ -48,7 +48,7 @@ That's it ! Launch Opensesame and you should now see new elements in the leftbar
 ### Get tracked skeleton of the participant
 
 
-### Logging
+### Data and Logfile
 The data collected by the Kinect is the three-dimensional coordinates of the joints of the human body, at 30 measurements per second (i.e., every 30 ms).
 
 
@@ -65,7 +65,102 @@ The plugin create its own log file, directly in the folder of the experiment fil
 
 You can't directly use gestures as response in your experiment yet. But, it is possible to modify the python file (name "libkinect.py" in the folder "kinect_init") and add this functionnality. Don't hesite to contact me for more informations or help.
 
-<pre><code>code</code></pre>
+Inline script
+<pre><code>
+-- Prepare part --
+## Initialize new variables in Opensesame, so they exist from the start and there is no shift in the logfile
+# Variable for the time of the movement
+var.mvt_time = 0
+# Variable for the type of the movement
+var.mvt_type = None
+  
+  
+-- Run part --
+# Get the time when the element started
+start_time = self.experiment.time()
+
+# Infinite loop until 'break' is call
+while 1 :
+	# Call the get_data function (in libkinect.py) to access the data from the kinect
+	skeleton = self.experiment.kinect.get_data()
+	# Indicate the correspondance of each skeleton's articulations
+	# For each articulations, you have 3 coordonnates (x - horizontal axis, y - vertical axis, z - depth axis)
+	hip_center      = skeleton.SkeletonPositions[0]
+	spine           = skeleton.SkeletonPositions[1]
+	shoulder_center = skeleton.SkeletonPositions[2]
+	head            = skeleton.SkeletonPositions[3]
+	shoulder_left   = skeleton.SkeletonPositions[4]
+	elbow_left      = skeleton.SkeletonPositions[5]
+	wrist_left      = skeleton.SkeletonPositions[6]
+	hand_left       = skeleton.SkeletonPositions[7]
+	shoulder_right  = skeleton.SkeletonPositions[8]
+	elbow_right     = skeleton.SkeletonPositions[9]
+	wrist_right     = skeleton.SkeletonPositions[10]
+	hand_right      = skeleton.SkeletonPositions[11]
+	hip_left        = skeleton.SkeletonPositions[12]
+	knee_left       = skeleton.SkeletonPositions[13]
+	ankle_left      = skeleton.SkeletonPositions[14]
+	foot_left       = skeleton.SkeletonPositions[15]
+	hip_right       = skeleton.SkeletonPositions[16]
+	knee_right      = skeleton.SkeletonPositions[17]
+	ankle_right     = skeleton.SkeletonPositions[18]
+	foot_right      = skeleton.SkeletonPositions[19]
+	
+	## Examples of movement you can handle by comparing the position of different part of the participants body
+	
+	# If the participant has the right hand higher (the vertical axis of the Kinect, so the 'y' part) than the shoulder, it ocnsider that the participant rise the right hand
+	if hand_right.y > shoulder_right.y :
+		# Set the time of the movement, by substracting the actual time to the starting time
+		var.mvt_time = self.experiment.time() - start_time
+		# Set the type of the movement
+		var.mvt_type = "rising right hand"
+		# End the loop and end the inline script element
+		#break
+	
+	# If the participant has the left hand higher (the vertical axis of the Kinect, so the 'y' part) than the shoulder, it ocnsider that the participant rise the left hand
+	if hand_left.y > shoulder_left.y :
+		# Set the time of the movement, by substracting the actual time to the starting time
+		var.mvt_time = self.experiment.time() - start_time
+		# Set the type of the movement
+		var.mvt_type = "rising left hand"
+		# End the loop and end the inline script element
+		#break
+	
+	# If you add the calibration plugin, you can compare the actual position of the participant to the position during the calibration (aka, 'initial position')
+	# So, if the right hand is closer (50% of the initial distance) to the kinect than during the calibration, it consider that the right hand move forward
+	
+	
+	# Indicate the correspondance of each skeleton's articulations
+	# For each articulations, you have 3 coordonnates (x - horizontal axis, y - vertical axis, z - depth axis)
+	first_hip_center      = self.experiment.first_skeleton.SkeletonPositions[0]
+	first_spine           = self.experiment.first_skeleton.SkeletonPositions[1]
+	first_shoulder_center = self.experiment.first_skeleton.SkeletonPositions[2]
+	first_head            = self.experiment.first_skeleton.SkeletonPositions[3]
+	first_shoulder_left   = self.experiment.first_skeleton.SkeletonPositions[4]
+	first_elbow_left      = self.experiment.first_skeleton.SkeletonPositions[5]
+	first_wrist_left      = self.experiment.first_skeleton.SkeletonPositions[6]
+	first_hand_left       = self.experiment.first_skeleton.SkeletonPositions[7]
+	first_shoulder_right  = self.experiment.first_skeleton.SkeletonPositions[8]
+	first_elbow_right     = self.experiment.first_skeleton.SkeletonPositions[9]
+	first_wrist_right     = self.experiment.first_skeleton.SkeletonPositions[10]
+	first_hand_right      = self.experiment.first_skeleton.SkeletonPositions[11]
+	first_hip_left        = self.experiment.first_skeleton.SkeletonPositions[12]
+	first_knee_left       = self.experiment.first_skeleton.SkeletonPositions[13]
+	first_ankle_left      = self.experiment.first_skeleton.SkeletonPositions[14]
+	first_foot_left       = self.experiment.first_skeleton.SkeletonPositions[15]
+	first_hip_right       = self.experiment.first_skeleton.SkeletonPositions[16]
+	first_knee_right      = self.experiment.first_skeleton.SkeletonPositions[17]
+	first_ankle_right     = self.experiment.first_skeleton.SkeletonPositions[18]
+	first_foot_right      = self.experiment.first_skeleton.SkeletonPositions[19]
+	
+	if hand_right.x < (first_hand_right.x * 0.8) :
+		# Set the time of the movement, by substracting the actual time to the starting time
+		var.mvt_time = self.experiment.time() - start_time
+		# Set the type of the movement
+		var.mvt_type = "approaching right hand"
+		# End the loop and end the inline script element
+		break
+</code></pre>
 
 ---check if coordonnates not negative
 ---
