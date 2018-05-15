@@ -36,9 +36,9 @@ Then, to install Kinect plugin in OpenSesame, simply copy the 4 folders (kinect_
 That's it ! Launch Opensesame and you should now see new elements in the leftbar (restart it if it's already open).
 
 ## Using plugins in an experiment
-<em><b>Requirements :  
-1. Adequate space (150 centimeter (5 feet) minimum) between the camera and the participant  
-2. Cleared space between the camera and the participant to ensure accurate measurements  
+<em><b>Requirements :
+- Adequate space (150 centimeter (5 feet) minimum) between the camera and the participant  
+- Cleared space between the camera and the participant to ensure accurate measurements  
 </b></em>
 
 
