@@ -41,6 +41,8 @@ Requirements : Adequate space (1m50 minimum) and space between the camera and th
 ### Logging
 The data collected by the Kinect is the three-dimensional coordinates of the joints of the human body, at 30 measurements per second (i.e., every 30 ms) (image of the device and joints at <https://www.resna.org/sites/default/files/conference/2014/Wheelchair%20Seating/Studen%20Scientific/McCutcheon.html>).
 
+![Kinect device](https://www.resna.org/sites/default/files/conference/2014/Wheelchair%20Seating/Studen%20Scientific/McCutcheon.html "Kinect device and human articulation it detect")
+
 The plugin create its own log file, directly in the folder of the experiment file.
 
 `Be careful : you can have another heads lines after the first row in the log file. It appears when an element in your opensesame's experiment is launched. By adding a variable in Opensesame, the plugin add a new head line to fit the data it get from Opensesame.`
@@ -48,6 +50,8 @@ The plugin create its own log file, directly in the folder of the experiment fil
 ### Use gestures as responses
 
 You can't directly use gestures as response in your experiment yet. But, it is possible to modify the python file (name "libkinect.py" in the folder "kinect_init") and add this functionnality. Don't hesite to contact me for more informations or help.
+
+<pre><code>code</code></pre>
 
 ---check if coordonnates not negative
 ---
