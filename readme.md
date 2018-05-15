@@ -1,11 +1,11 @@
-# OpenSesame Kinect plugins
+# OpenSesame Kinect plugins (only WINDOWS)
 
 Created by : Jean-Christophe Hurault
 <jeanchristophe.hurault@gmail.com>
 
-A serie of plugins that allows non-intrusive body motion capture of a participant by making Opensesame communicate with a Kinect device.
+A serie of plugins that allows non-intrusive body motion capture and gesture detection of a participant by making Opensesame communicate with a Kinect device.
 
-<b>N'hesitez pas à me contacter si vous avez des remarques ou suggestions d'améliorations !</b>
+<b>Feel free to contact me if you have any problems, comments or suggestions for improvements !</b>
 
 ## About the Kinect
 
@@ -13,18 +13,15 @@ The Kinect is a motion-sensing input device developed by Microsoft© and introdu
 
 ## About Kinect plugins
 
-The study of body movements is an important source of knowledge for psychology, these systems of analysis often require the use of skills outside the laboratories. This is why we present here an innovative device allowing both researchers and students, with the simplest possible and minimal resources, to measure the body movements of participants during experiments.
+The study of body movements is an important source of knowledge for psychology, these systems of analysis often require the use of skills outside the laboratories. This is why I present here an innovative device allowing both researchers and students, with the simplest possible and minimal resources, to measure and use as response the body movements of participants during experiments.
 
 This plugins provides Python bindings between OpenSesame and a Kinect device. The plugin integrate “pykinect”, a package providing access to the Kinect device, to control a Kinect as an input for OpenSesame. By using the “pykinect” package (https://github.com/Microsoft/PTVS/wiki/PyKinect), the plugin can interact with the Kinect camera and tracked the skeleton of one participant.
 
-Thus, it’s possible to record the position of a participant during any phase of an experiment.
-
-
-
+Thus, it’s possible to record the position of a participant during any phase of an experiment and, by using an python inline script, to detect and use a specific gesture of the participant.
 
 ## Install plugins for Windows
 
-First, you need to install the drivers, runtime environment and Software Development Kit (SDK) required by Kinect for Windows applications using Kinect sensor technology. You can find them here:
+First, you need to install the driver, runtime environment and Software Development Kit (SDK) required for Windows applications using Kinect sensor technology. You can find them here:
 - Kinect for Windows Runtime v1.8 : <https://www.microsoft.com/en-us/download/details.aspx?id=40277>
 - Kinect for Windows SDK v1.8 : <https://www.microsoft.com/en-us/download/confirmation.aspx?id=40278>
 
