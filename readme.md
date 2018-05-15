@@ -41,8 +41,10 @@ Requirements : Adequate space (1m50 minimum) and space between the camera and th
 ### Logging
 The data collected by the Kinect is the three-dimensional coordinates of the joints of the human body, at 30 measurements per second (i.e., every 30 ms).
 
-<em><b>Figure : Characteristics of the Kinect</b></em>
+
 ![Kinect device](https://www.resna.org/sites/default/files/conference/2014/Wheelchair%20Seating/Student%20Scientific/McCutcheon/Fig1.png "Kinect device and human articulation it detect")
+<em><b>Figure : Characteristics of the Kinect</b></em>
+
 (A) Captured human joints      (B) Technical components      (C) Coordinate system
 
 
