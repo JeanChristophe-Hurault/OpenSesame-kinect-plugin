@@ -40,7 +40,7 @@ That's it ! Launch Opensesame and you should now see new elements in the leftbar
 - Adequate space (130 centimeter/4.25 feet minimum and 300 centimeter/938 feet maximum) between the camera and the participant  
 - Cleared space between the camera and the participant to ensure accurate measurements
 - If possible, a uniform background color for the participant
-- A Kinect device, the version with an adapter for windows !
+- A Kinect device, the version with an adapter for windows !  
 ![kinect for windows](/images/Kinect_for_windows.jpg "Kinect for Windows")  
 </b></em>
 
