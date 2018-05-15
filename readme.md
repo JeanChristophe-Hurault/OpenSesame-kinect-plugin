@@ -47,14 +47,18 @@ That's it ! Launch Opensesame and you should now see new elements in the leftbar
 
 ### Get tracked skeleton of the participant
 
-- Kinect_init plugin
-![kinect_init plugin](/images/kinect_init_large.png "kinect_init plugin")</br>  
-- Kinect_calibration plugin
-![Kinect_calibration plugin](/images/Kinect_calibration_large.png "Kinect_calibration plugin")</br>  
-- Kinect_start_recording plugin
-![Kinect_start_recording plugin](/images/Kinect_start_recording_large.png "Kinect_start_recording plugin")</br>  
-- Kinect_stop_recording plugin
-![Kinect_stop_recording plugin](/images/Kinect_stop_recording_large.png "Kinect_stop_recording plugin")</br>  
+- kinect_init plugin
+![kinect_init plugin](/images/kinect_init_large.png "kinect_init plugin")
+</br>  
+- kinect_calibration plugin
+![Kinect_calibration plugin](/images/kinect_calibration_large.png "Kinect_calibration plugin")
+</br>  
+- kinect_start_recording plugin
+![Kinect_start_recording plugin](/images/kinect_start_recording_large.png "Kinect_start_recording plugin")
+</br>  
+- kinect_stop_recording plugin
+![Kinect_stop_recording plugin](/images/kinect_stop_recording_large.png "Kinect_stop_recording plugin")
+</br>  
 
 ### Data and Logfile
 The data collected by the Kinect is the three-dimensional coordinates of the joints of the human body, at 30 measurements per second (i.e., every 30 ms).
