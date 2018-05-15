@@ -45,12 +45,11 @@ The data collected by the Kinect is the three-dimensional coordinates of the joi
 ![Kinect device](https://www.resna.org/sites/default/files/conference/2014/Wheelchair%20Seating/Student%20Scientific/McCutcheon/Fig1.png "Kinect device and human articulation it detect")
 <em><b>Figure : Characteristics of the Kinect     (  (A) Captured human joints (B) Technical components (C) Coordinate system</b>  )</em>  
 <em>Photo credit: <a href="http://www.resna.org/sites/default/files/conference/2014/Wheelchair Seating/Student Scientific/McCutcheon/Fig1.png">Resna.org</a></em>
-  
-  
-<p>The plugin create its own log file, directly in the folder of the experiment file.
+</br>  
+</br>
+The plugin create its own log file, directly in the folder of the experiment file.
 
 `Be careful : you can have another heads lines after the first row in the log file. It appears when an element in your opensesame's experiment is launched. By adding a variable in Opensesame, the plugin add a new head line to fit the data it get from Opensesame.`
-</p>
 
 ### Use gestures as responses
 
