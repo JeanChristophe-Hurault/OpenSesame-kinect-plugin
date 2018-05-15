@@ -47,6 +47,14 @@ That's it ! Launch Opensesame and you should now see new elements in the leftbar
 
 ### Get tracked skeleton of the participant
 
+- Kinect_init plugin
+![kinect_init plugin](/images/kinect_init_large.png "kinect_init plugin")</br>  
+- Kinect_calibration plugin
+![Kinect_calibration plugin](/images/Kinect_calibration_large.png "Kinect_calibration plugin")</br>  
+- Kinect_start_recording plugin
+![Kinect_start_recording plugin](/images/Kinect_start_recording_large.png "Kinect_start_recording plugin")</br>  
+- Kinect_stop_recording plugin
+![Kinect_stop_recording plugin](/images/Kinect_stop_recording_large.png "Kinect_stop_recording plugin")</br>  
 
 ### Data and Logfile
 The data collected by the Kinect is the three-dimensional coordinates of the joints of the human body, at 30 measurements per second (i.e., every 30 ms).
@@ -62,6 +70,11 @@ The plugin create its own log file, directly in the folder of the experiment fil
 `Be careful : you can have another heads lines after the first row in the log file. It appears when an element in your opensesame's experiment is launched. By adding a variable in Opensesame, the plugin add a new head line to fit the data it get from Opensesame.`
 
 ### Use gestures as responses
+
+<em><b>Check if coordonnates from articulation of the participant are not negative (due to ..)
+1. 
+2. 
+</b></em>
 
 You can't directly use gestures as response in your experiment yet. But, it is possible to modify the python file (name "libkinect.py" in the folder "kinect_init") and add this functionnality. Don't hesite to contact me for more informations or help.
 
@@ -165,10 +178,7 @@ while 1 :
 		var.mvt_type = "approaching right hand"
 		# End the loop and end the inline script element
 		break
-</code></pre>
-
----check if coordonnates not negative
----
+</code></pre>  
 
 ## License
 
