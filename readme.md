@@ -27,9 +27,11 @@ First, you need to install the driver, runtime environment and Software Developm
 
 The "pykinect" package is already included in the plugin folder, so you don't need to download it.
 
-Then, to install Kinect plugin in OpenSesame, simply copy this folder to the OpenSesame program folder (for OpenSesame 3.0 or newer):
+Then, to install Kinect plugin in OpenSesame, simply copy the 4 folders inside the "plugins" folder to the OpenSesame program folder (for OpenSesame 3.0 or newer):
 - C:\Program Files (x86)\OpenSesame\share\opensesame_plugins
-
+</br>
+![folder plugins](/images/install_pluginsKinect.png "Copy-Paste folders from plugins")
+</br>
 
 ## Using plugins in an experiment
 Requirements : Adequate space (1m50 minimum) and space between the camera and the participant should be ensured to ensure accurate measurements.
