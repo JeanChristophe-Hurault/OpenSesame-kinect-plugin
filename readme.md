@@ -194,8 +194,11 @@ while 1 :
 </code></pre>  
 
 <em><b>Don't forget that the coordonates (x, y, z) can be negatives and it might change the logic of comparaison </b></em>
+</br></br>
 
-<b>Don't hesite to contact me for more informations or help.</b>
+<b>I hope this documentation is helpful and easy to understand. If not, don't hesite to contact me for more informations or help.</b>
+
+
 
 ## License
 
