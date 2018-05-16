@@ -33,7 +33,7 @@ import os.path
 import csv
 
 
-# Initialize a object Kinect
+# Initialize an kinect object
 _kinect = None
 # Initialize a file to log Kinect data
 logfile = None
@@ -41,7 +41,7 @@ logfile = None
 class libkinect:
 
     def __init__(self, experiment):
-    #"""Called by the kinect_init plugin - Initialize a Kinect object and a logfile."""
+    #"""Called by the kinect_init plugin - Initialize a Kinect object and a log file."""
 
         global _kinect
         global logfile
@@ -66,12 +66,12 @@ class libkinect:
 
         # Enable the detection of the participant skeleton
         _kinect.skeleton_engine.enabled = True
-        # Put the kinect at a 0 degre angle
+        # Put the kinect at a 0 degree angle
         _kinect.camera.elevation_angle = 0
-        # Put a kinect instance in an Opensesame variable, to access it from an "inline script" element
+        # Put a kinect instance in an OpenSesame variable, to access it from an "inline script" element
         self.experiment.kinect = _kinect
 
-        # Prepare the file for logging the data
+        # Prepare the file for logging data
         try :
             logname = self.experiment.logfile + "_kinect.csv"
             file = open(logname, "a")
@@ -85,7 +85,7 @@ class libkinect:
         self.opensesame_var_names_old = None
 
     def calibrate(self):
-    #"""Called by the kinect_calibration plugin - Check indefinitively until a skeleton is found."""
+    #"""Called by the kinect_calibration plugin - Check infinitely until a skeleton is found."""
         self.experiment.first_skeleton = None
         SkeletonNotFound = True
         while SkeletonNotFound :
@@ -137,12 +137,12 @@ class libkinect:
         global logfile
 
         trial_time = 0
-        # Get variables names of Opensesame and create a string with them, separated by a comma, adapted to row in the logfile
+        # Get variable names of Opensesame and create a string with them, separated by a comma, adapted to row in the log file
         opensesame_var_names = " ".join(str(var[0]).replace(" ", "_") for var in self.experiment.var.items()).split()
 
-        # Check if the list of variable in Opensesame change (i.e., an element was launch), if so, add a new row in the logfile with variables names
+        # Check if the list of variable in Opensesame change (i.e., an element was launched), if so, add a new row in the log file with variable names
         if opensesame_var_names != self.opensesame_var_names_old:
-            # Get variables names of Opensesame and create a string with them, separated by a comma, adapted to row in the logfile
+            # Get variable names of Opensesame and create a string with them, separated by a comma, adapted to row in the log file
             kinect_var_names = ["Participant","Trials","Row","Time (ms)","Skeleton index","hip_center.x","hip_center.y","hip_center.z","spine.x","spine.y","spine.z","shoulder_center.x","shoulder_center.y","shoulder_center.z","head.x","head.y","head.z","shoulder_left.x","shoulder_left.y","shoulder_left.z","elbow_left.x","elbow_left.y","elbow_left.z","wrist_left.x","wrist_left.y","wrist_left.z","hand_left.x","hand_left.y","hand_left.z","shoulder_right.x","shoulder_right.y","shoulder_right.z","elbow_right.x","elbow_right.y","elbow_right.z","wrist_right.x","wrist_right.y","wrist_right.z","hand_right.x","hand_right.y","hand_right.z","hip_left.x","hip_left.y","hip_left.z","knee_left.x","knee_left.y","knee_left.z","ankle_left.x","ankle_left.y","ankle_left.z","foot_left.x","foot_left.y","foot_left.z","hip_right.x","hip_right.y","hip_right.z","knee_right.x","knee_right.y","knee_right.z","ankle_right.x","ankle_right.y","ankle_right.z","foot_right.x","foot_right.y","foot_right.z"]
             # Write a row with the headers (list of variable)
             logfile.writerow((kinect_var_names+opensesame_var_names))
@@ -156,14 +156,14 @@ class libkinect:
         while 1 :
         	# Check if the recording variable is set to false
             if self.recording == False :
-                # End the recording
+                # Ends the recording
                 break
             trial_time = self.experiment.time() - t
             for skeleton in _kinect.skeleton_engine.get_next_frame().SkeletonData:
                 print skeleton
                 debug.msg(skeleton)
                 if skeleton.eTrackingState == nui.SkeletonTrackingState.TRACKED:
-                    # Indicate the correspondance of each skeleton's articulations
+                    # Indicate the correspondance of each skeleton's joints
                     hip_center      = skeleton.SkeletonPositions[0]
                     spine           = skeleton.SkeletonPositions[1]
                     shoulder_center = skeleton.SkeletonPositions[2]
@@ -187,7 +187,7 @@ class libkinect:
 
                     self.experiment.RowNb += 1
                     opensesame_var_values = " ".join(repr(var[1]).replace(" ", "_") for var in self.experiment.var.items()).split()
-                    # Get variables names of Opensesame and create a string with them, separated by a comma, adapted to row in the logfile
+                    # Get variable names of Opensesame and create a string with them, separated by a comma, adapted to row in the log file
                     kinect_var_values = [str(self.experiment.subject_nr),str(self.experiment.TrialNb),str(self.experiment.RowNb),str(trial_time),str(skeleton.dwUserIndex),str(hip_center.x),str(hip_center.y),str(hip_center.z),str(spine.x),str(spine.y),str(spine.z),str(shoulder_center.x),str(shoulder_center.y),str(shoulder_center.z),str(head.x),str(head.y),str(head.z),str(shoulder_left.x),str(shoulder_left.y),str(shoulder_left.z),str(elbow_left.x),str(elbow_left.y),str(elbow_left.z),str(wrist_left.x),str(wrist_left.y),str(wrist_left.z),str(hand_left.x),str(hand_left.y),str(hand_left.z),str(shoulder_right.x),str(shoulder_right.y),str(shoulder_right.z),str(elbow_right.x),str(elbow_right.y),str(elbow_right.z),str(wrist_right.x),str(wrist_right.y),str(wrist_right.z),str(hand_right.x),str(hand_right.y),str(hand_right.z),str(hip_left.x),str(hip_left.y),str(hip_left.z),str(knee_left.x),str(knee_left.y),str(knee_left.z),str(ankle_left.x),str(ankle_left.y),str(ankle_left.z),str(foot_left.x),str(foot_left.y),str(foot_left.z),str(hip_right.x),str(hip_right.y),str(hip_right.z),str(knee_right.x),str(knee_right.y),str(knee_right.z),str(ankle_right.x),str(ankle_right.y),str(ankle_right.z),str(foot_right.x),str(foot_right.y),str(foot_right.z)]
                     # Create a row in the kinect's logfile with all variables (kinect data and Opensesame variables).
                     logfile.writerow((kinect_var_values+opensesame_var_values))
@@ -196,7 +196,7 @@ class libkinect:
         print "Stop getting events"
 
     def close(self):
-    #"""Close the Kinect object and the logfile."""
+    #"""Close the Kinect object and the log file."""
         global _kinect
         global file
 
