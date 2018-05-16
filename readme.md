@@ -1,7 +1,7 @@
 # OpenSesame Kinect plugins (only Windows)
 
 Created by : Jean-Christophe Hurault</br>
-<jeanchristophe.hurault@gmail.com>
+Email : <jeanchristophe.hurault@gmail.com>
 
 A serie of plugins that allows non-intrusive body motion capture and gesture detection of a participant by making Opensesame communicate with a Kinect device.
 
@@ -37,6 +37,7 @@ That's it ! Launch Opensesame and you should now see new elements in the leftbar
 
 ## Using plugins in an experiment
 <em><b>Requirements :
+- Only one person in front of the kinect !
 - Adequate space (130 centimeter/4.25 feet minimum and 300 centimeter/938 feet maximum) between the camera and the participant  
 - Cleared space between the camera and the participant to ensure accurate measurements
 - If possible, a uniform background color for the participant
@@ -54,26 +55,36 @@ You should now see 4 new elements in the Opensesame leftbar (with the sketpad, k
 	This plugin initiate a Kinect object. After this, the Kinect is connect (if not, you will have a message of error when you start your experiment) and always active (but not recording the data). You have to insert it first, before any other Kinect plugins ! I recommand to put it at the start of the experiment (AVOID to put it in a loop, if not, it will create a new Kinect object at each trials and probably crash Opensesame).
 	
 - ![Kinect_calibration plugin](/images/kinect_calibration_large.png "Kinect_calibration plugin") The "kinect_calibration" plugin</br>
-	This plugin serve as a calibration phase for the detection of the participant. Basically, it wait (infinitely) until the Kinect detect a body. When it detect one, it save the position of the body in a variable named "first_skeleton". You can use this plugin to make sure your trial begin only if the kinect detect the participant (if not, you will only have 0 in the data).  
+	This plugin serve as a calibration phase for the detection of the participant. Basically, it wait (infinitely) until the Kinect detect a body. When it detect one, it save the position of the body in a variable named "first_skeleton". You can use this plugin to make sure your trial begin only if the kinect detect the participant (if not, you will only have 0 in the data). This plugin is optional.  
 	
 - ![Kinect_start_recording plugin](/images/kinect_start_recording_large.png "Kinect_start_recording plugin") The "kinect_start_recording" plugin</br>
-	This plugin start the recording of Kinect data in the kinect logfile. When active, it record when the participant is detected constantly until the kinect_stop_recording plugin is launch.
+	This plugin start the recording of Kinect data in the kinect logfile. When active, it record when the participant is detected constantly until the kinect_stop_recording plugin is launch. You can put the plugin everywhere, and use several in the same experiment (for multiple star/stop plugin, don't forget to check the logfile part below).  
 
 - ![Kinect_stop_recording plugin](/images/kinect_stop_recording_large.png "Kinect_stop_recording plugin") The "kinect_stop_recording" plugin</br>
-	This plugin only serve to stop the recording.
+	This plugin only serve to stop the recording. You have to put it after the kinect_start_recording plugin.
 
+To resume, for example, use the init plugin at the beginning of the experiment to connect the kinect, (optionnal) you can put the calibration plugin before a loop to make sure it detect the participant. In the loop, you start by adding the start recording plugin, you show a stimulus and at the end of the loop you add the stop recrding plugin. By doing that, you will have a logfile (see below) with data of the participant position during the presentation of the stimulus.
 
 ### Data and Logfile
-The data collected by the Kinect is the three-dimensional coordinates of the joints of the human body, at 30 measurements per second (i.e., every 30 ms).
-
+Data collected by the Kinect are the three-dimensional coordinates of the joints of the human body, at 30 measurements per second (i.e., every 30 ms). 
 
 ![Kinect device](https://www.resna.org/sites/default/files/conference/2014/Wheelchair%20Seating/Student%20Scientific/McCutcheon/Fig1.png "Kinect device and human articulation it detect")
 <em><b>Figure : Characteristics of the Kinect     (  (A) Captured human joints (B) Technical components (C) Coordinate system</b>  )</em>  
 <em>Photo credit: <a href="http://www.resna.org/sites/default/files/conference/2014/Wheelchair Seating/Student Scientific/McCutcheon/Fig1.png">Resna.org</a></em>
 </br>  
 </br>
-The plugin create its own log file, directly in the folder of the experiment file.
+The plugin create it's own logfile (so you will have 2 logfiles, the Opensesame logfile and the Kinect data logfile), directly in the folder of the experiment file. The name of that specific (Kinect) logfile if the same as the normal (Opensesame) logfile but with "kinect.csv" at the end. This file is in CSV format (it's a simple text file, with a coma to separate each value).  
 
+That file, start with headers, you have :
+- "Participant" : The number you indicate at the beginning of the experiment.
+- "Trials" : The trial number. If you have multiple start/stop plugins in different loops, the trial number won't start from "1" at each loop.
+- "Row" : The measure number for each trial, it start from "1" at each trial.
+- "Time (ms)" : The time in millisecond, from the start of the measurement, of each measure.
+- "Skeleton index" : The index number (attribute by the kinect) for the person in front of the Kinect. It allows youy to make sure data are from the same person.
+- "hip_center.x" : The distance 
+![Kinect logfile](/images/kinect_logfile.png "Kinect logfile")
+
+</br>
 <em><b>Be careful : you can have another heads lines after the first row in the log file. It appears when an element in your opensesame's experiment is launched. By adding a variable in Opensesame, the plugin add a new head line to fit the data it get from Opensesame.</b></em>
 
 ### Use gestures as responses
