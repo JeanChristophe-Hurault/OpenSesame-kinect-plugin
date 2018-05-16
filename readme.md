@@ -51,16 +51,16 @@ That's it ! Launch Opensesame and you should now see new elements in the leftbar
 
 You should now see 4 new elements in the Opensesame leftbar (with the sketpad, keyboard,loop... elements) :   
 
-- ![kinect_init plugin](/images/kinect_init_large.png "kinect_init plugin") The "kinect_init" plugin</br>
+- ![kinect_init plugin](/images/kinect_init_large.png "kinect_init plugin") <b>The "kinect_init" plugin</b></br>
 	This plugin initiate a Kinect object. After this, the Kinect is connect (if not, you will have a message of error when you start your experiment) and always active (but not recording the data). You have to insert it first, before any other Kinect plugins ! I recommand to put it at the start of the experiment (AVOID to put it in a loop, if not, it will create a new Kinect object at each trials and probably crash Opensesame).
 	
-- ![Kinect_calibration plugin](/images/kinect_calibration_large.png "Kinect_calibration plugin") The "kinect_calibration" plugin</br>
+- ![Kinect_calibration plugin](/images/kinect_calibration_large.png "Kinect_calibration plugin") <b>The "kinect_calibration" plugin</b></br>
 	This plugin serve as a calibration phase for the detection of the participant. Basically, it wait (infinitely) until the Kinect detect a body. When it detect one, it save the position of the body in a variable named "first_skeleton". You can use this plugin to make sure your trial begin only if the kinect detect the participant (if not, you will only have 0 in the data). This plugin is optional.  
 	
-- ![Kinect_start_recording plugin](/images/kinect_start_recording_large.png "Kinect_start_recording plugin") The "kinect_start_recording" plugin</br>
+- ![Kinect_start_recording plugin](/images/kinect_start_recording_large.png "Kinect_start_recording plugin") <b>The "kinect_start_recording" plugin</b></br>
 	This plugin start the recording of Kinect data in the kinect logfile. When active, it record when the participant is detected constantly until the kinect_stop_recording plugin is launch. You can put the plugin everywhere, and use several in the same experiment (for multiple star/stop plugin, don't forget to check the logfile part below).  
 
-- ![Kinect_stop_recording plugin](/images/kinect_stop_recording_large.png "Kinect_stop_recording plugin") The "kinect_stop_recording" plugin</br>
+- ![Kinect_stop_recording plugin](/images/kinect_stop_recording_large.png "Kinect_stop_recording plugin") <b>The "kinect_stop_recording" plugin</b></br>
 	This plugin only serve to stop the recording. You have to put it after the kinect_start_recording plugin.
 
 To resume, for example, use the init plugin at the beginning of the experiment to connect the kinect, (optionnal) you can put the calibration plugin before a loop to make sure it detect the participant. In the loop, you start by adding the start recording plugin, you show a stimulus and at the end of the loop you add the stop recrding plugin. By doing that, you will have a logfile (see below) with data of the participant position during the presentation of the stimulus.
