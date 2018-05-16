@@ -67,7 +67,7 @@ The data collected by the Kinect is the three-dimensional coordinates of the joi
 </br>
 The plugin create its own log file, directly in the folder of the experiment file.
 
-`Be careful : you can have another heads lines after the first row in the log file. It appears when an element in your opensesame's experiment is launched. By adding a variable in Opensesame, the plugin add a new head line to fit the data it get from Opensesame.`
+<em><b>Be careful : you can have another heads lines after the first row in the log file. It appears when an element in your opensesame's experiment is launched. By adding a variable in Opensesame, the plugin add a new head line to fit the data it get from Opensesame.</b></em>
 
 ### Use gestures as responses
 
