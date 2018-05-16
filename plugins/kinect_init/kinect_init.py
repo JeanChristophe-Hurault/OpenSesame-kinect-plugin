@@ -20,7 +20,6 @@ import os.path
 
 class kinect_init(item):
 
-    # Provide an informative description for your plug-in.
     description = u'This plugin initiate the object Kinect (place at the beginning of the experiment)'
 
     def reset(self):
