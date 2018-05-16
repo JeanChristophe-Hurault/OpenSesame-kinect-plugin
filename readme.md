@@ -81,20 +81,27 @@ That file, start with headers, you have :
 - "Row" : The measure number for each trial, it start from "1" at each trial.
 - "Time (ms)" : The time in millisecond, from the start of the measurement, of each measure.
 - "Skeleton index" : The index number (attribute by the kinect) for the person in front of the Kinect. It allows youy to make sure data are from the same person.
-- "hip_center.x" : The distance 
+- "hip_center.x" : The distance in meter on the horizontal axis, from the kinect referential. The "0" is the center of the kinect. For example, if you have "0.3", it mean that the center of the hip is 30 centimeter on the right side (if you facing the Kinect) of the center of the Kinect. If you have "-0.3"; it's 0.3 centimeter on the left side.
+- "hip_center.y" : The distance in meter on the vertical axis, from the kinect referential. The "0" is the center of the kinect. For example, if you have "0.3", it mean that the center of the hip is 30 centimeter higher than the Kinect, if you have "-0.3", the hip is 30 centimeter lower than the Kinect.
+- "hip_center.z" : The distance in meter on the depth axis, from the kinect referential. The "0" is the center of the kinect. For example, if you have "1.3", it mean that the distance between the center of the hip and the Kinect is 130 centimeter. You can't have negative value for this one.
+- This "x", "y", "z" architecture is the same for the 20 articulations
+- After, it get the data from the Opensesame variables. So the nexte colonns are the same as the "normal" logfile. It allows you to easily make correspondance between trials in Opensesame and the Kinect data you have collected.
+  
 ![Kinect logfile](/images/kinect_logfile.png "Kinect logfile")
 
 </br>
-<em><b>Be careful : you can have another heads lines after the first row in the log file. It appears when an element in your opensesame's experiment is launched. By adding a variable in Opensesame, the plugin add a new head line to fit the data it get from Opensesame.</b></em>
+<em><b>Be careful : you can have another header lines after the first row in the log file. It appears when an element in your opensesame's experiment is launched. By adding a variable in Opensesame, the plugin add a new head line to fit the data it get from Opensesame.</b></em>
 
 ### Use gestures as responses
+
+You can't directly use gestures as response in your experiment yet. But, it is possible to modify the python file (name "libkinect.py" in the folder "kinect_init") and add this functionnality. Don't hesite to contact me for more informations or help.
 
 <em><b>Check if coordonnates from articulation of the participant are not negative (due to ..)
 1. 
 2. 
 </b></em>
 
-You can't directly use gestures as response in your experiment yet. But, it is possible to modify the python file (name "libkinect.py" in the folder "kinect_init") and add this functionnality. Don't hesite to contact me for more informations or help.
+
 
 Inline script :</br>
 <b>-- Prepare part --</b>  
@@ -136,10 +143,7 @@ while 1 :
 	knee_right      = skeleton.SkeletonPositions[17]
 	ankle_right     = skeleton.SkeletonPositions[18]
 	foot_right      = skeleton.SkeletonPositions[19]
-	
-	
 	## Examples of movement you can handle by comparing the position of different part of the participants body
-
 	# If the participant has the right hand higher (the vertical axis of the Kinect, so the 'y' part) than the shoulder, 
 	# it consider that the participant rise the right hand
 	if hand_right.y > shoulder_right.y :
@@ -149,7 +153,6 @@ while 1 :
 		var.mvt_type = "rising right hand"
 		# End the loop and end the inline script element
 		#break
-	
 	# If the participant has the left hand higher (the vertical axis of the Kinect, so the 'y' part) than the shoulder,
 	# it consider that the participant rise the left hand
 	if hand_left.y > shoulder_left.y :
@@ -159,13 +162,10 @@ while 1 :
 		var.mvt_type = "rising left hand"
 		# End the loop and end the inline script element
 		#break
-	
 	# If you add the calibration plugin, you can compare the actual position of the participant to the position during 
 	# the calibration (aka, 'initial position')
 	# So, if the right hand is closer (50% of the initial distance) to the kinect than during the calibration, 
 	# it consider that the right hand move forward
-	
-	
 	# Indicate the correspondance of each skeleton's articulations
 	# For each articulations, you have 3 coordonnates (x - horizontal axis, y - vertical axis, z - depth axis)
 	first_hip_center      = self.experiment.first_skeleton.SkeletonPositions[0]
@@ -188,7 +188,6 @@ while 1 :
 	first_knee_right      = self.experiment.first_skeleton.SkeletonPositions[17]
 	first_ankle_right     = self.experiment.first_skeleton.SkeletonPositions[18]
 	first_foot_right      = self.experiment.first_skeleton.SkeletonPositions[19]
-	
 	if hand_right.x < (first_hand_right.x * 0.8) :
 		# Set the time of the movement, by substracting the actual time to the starting time
 		var.mvt_time = self.experiment.time() - start_time
