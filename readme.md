@@ -47,17 +47,13 @@ That's it ! Launch Opensesame and you should now see new elements in the leftbar
 
 ### Get tracked skeleton of the participant
 
-- kinect_init plugin
-![kinect_init plugin](/images/kinect_init_large.png "kinect_init plugin")
+- ![kinect_init plugin](/images/kinect_init_large.png "kinect_init plugin") The "kinect_init" plugin
 
-- kinect_calibration plugin
-![Kinect_calibration plugin](/images/kinect_calibration_large.png "Kinect_calibration plugin")
+- ![Kinect_calibration plugin](/images/kinect_calibration_large.png "Kinect_calibration plugin") The "kinect_calibration" plugin
 
-- kinect_start_recording plugin
-![Kinect_start_recording plugin](/images/kinect_start_recording_large.png "Kinect_start_recording plugin")
+- ![Kinect_start_recording plugin](/images/kinect_start_recording_large.png "Kinect_start_recording plugin") The "kinect_start_recording" plugin
 
-- kinect_stop_recording plugin
-![Kinect_stop_recording plugin](/images/kinect_stop_recording_large.png "Kinect_stop_recording plugin")
+- ![Kinect_stop_recording plugin](/images/kinect_stop_recording_large.png "Kinect_stop_recording plugin") The "kinect_stop_recording" plugin
 
 
 ### Data and Logfile
