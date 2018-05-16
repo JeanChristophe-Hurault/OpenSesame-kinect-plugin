@@ -47,7 +47,7 @@ That's it ! Launch Opensesame and you should now see new elements in the leftbar
 
 ### Get tracked skeleton of the participant
   
-`Find an example of an Opensesame experiment that only collect participant position during a trial`</br>  
+`Find an example of an Opensesame experiment that only collect participant position during a trial : "examples/Exp_Kinect_example.osexp"`</br>  
 
 You should now see 4 new elements in the Opensesame leftbar (with the sketpad, keyboard,loop... elements) :   
 
@@ -94,16 +94,12 @@ That file, start with headers, you have :
 
 ### Use gestures as responses
 
-You can't directly use gestures as response in your experiment yet. But, it is possible to modify the python file (name "libkinect.py" in the folder "kinect_init") and add this functionnality. Don't hesite to contact me for more informations or help.
+You can't directly use gestures as response in your experiment yet. But, it is possible to add an inline_script element in your experiment with some python code to add this functionnality. You can use a code like the one below and adjust it to your needs. By adding that just before the kinect_start_recording plugin, the trial will begin only if the participant make the gesture and you won't have data about the realisation of the gesture (because il happen before the start plugin). You can also add the code after the start plugin, to use it as response to a stimulus, end a trial...
 
-<em><b>Check if coordonnates from articulation of the participant are not negative (due to ..)
-1. 
-2. 
-</b></em>
+`Find an example of an Opensesame experiment that only collect participant position during a trial only when specific gestures are recognise : "examples/Exp_Kinect_example_gesture.osexp"`</br>  
 
-
-
-Inline script :</br>
+Here is an example on how to use python in an inline script to recognise and use gesture in an experiment.  
+<b>Inline script :</b></br>
 <b>-- Prepare part --</b>  
 <pre><code>
 ## Initialize new variables in Opensesame, so they exist from the start and there is no shift in the logfile
@@ -196,6 +192,10 @@ while 1 :
 		# End the loop and end the inline script element
 		break
 </code></pre>  
+
+<em><b>Don't forget that the coordonates (x, y, z) can be negatives and it might change the logic of comparaison </b></em>
+
+<b>Don't hesite to contact me for more informations or help.</b>
 
 ## License
 
