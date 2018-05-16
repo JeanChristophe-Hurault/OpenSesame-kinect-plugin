@@ -1,6 +1,6 @@
 # OpenSesame Kinect plugins (only Windows)
 
-Created by : Jean-Christophe Hurault
+Created by : Jean-Christophe Hurault</br>
 <jeanchristophe.hurault@gmail.com>
 
 A serie of plugins that allows non-intrusive body motion capture and gesture detection of a participant by making Opensesame communicate with a Kinect device.
@@ -44,16 +44,23 @@ That's it ! Launch Opensesame and you should now see new elements in the leftbar
 ![kinect for windows](/images/Kinect_for_windows.jpg "Kinect for Windows")  
 </b></em>
 
-
 ### Get tracked skeleton of the participant
+  
+`Find an example of an Opensesame experiment that only collect participant position during a trial`</br>  
 
-- ![kinect_init plugin](/images/kinect_init_large.png "kinect_init plugin") The "kinect_init" plugin
+You should now see 4 new elements in the Opensesame leftbar (with the sketpad, keyboard,loop... elements) :   
 
-- ![Kinect_calibration plugin](/images/kinect_calibration_large.png "Kinect_calibration plugin") The "kinect_calibration" plugin
+- ![kinect_init plugin](/images/kinect_init_large.png "kinect_init plugin") The "kinect_init" plugin</br>
+	This plugin initiate a Kinect object. After this, the Kinect is connect (if not, you will have a message of error when you start your experiment) and always active (but not recording the data). You have to insert it first, before any other Kinect plugins ! I recommand to put it at the start of the experiment (AVOID to put it in a loop, if not, it will create a new Kinect object at each trials and probably crash Opensesame).
+	
+- ![Kinect_calibration plugin](/images/kinect_calibration_large.png "Kinect_calibration plugin") The "kinect_calibration" plugin</br>
+	This plugin serve as a calibration phase for the detection of the participant. Basically, it wait (infinitely) until the Kinect detect a body. When it detect one, it save the position of the body in a variable named "first_skeleton". You can use this plugin to make sure your trial begin only if the kinect detect the participant (if not, you will only have 0 in the data).  
+	
+- ![Kinect_start_recording plugin](/images/kinect_start_recording_large.png "Kinect_start_recording plugin") The "kinect_start_recording" plugin</br>
+	This plugin start the recording of Kinect data in the kinect logfile. When active, it record when the participant is detected constantly until the kinect_stop_recording plugin is launch.
 
-- ![Kinect_start_recording plugin](/images/kinect_start_recording_large.png "Kinect_start_recording plugin") The "kinect_start_recording" plugin
-
-- ![Kinect_stop_recording plugin](/images/kinect_stop_recording_large.png "Kinect_stop_recording plugin") The "kinect_stop_recording" plugin
+- ![Kinect_stop_recording plugin](/images/kinect_stop_recording_large.png "Kinect_stop_recording plugin") The "kinect_stop_recording" plugin</br>
+	This plugin only serve to stop the recording.
 
 
 ### Data and Logfile
